@@ -47,7 +47,7 @@ services:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca3.example.com
       - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca3.org3.example.com-cert.pem
-      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/76b72b4d70ada09fac982b1604168642ca6d7a1a53d46ce972eae1b82c4de731_s
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/76b72b4d70ada09fac982b1604168642ca6d7a1a53d46ce972eae1b82c4de731_sk
     ports:
       - "9054:9054"
     command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
@@ -131,7 +131,7 @@ services:
       - basic
 
   peer0.org2.example.com:
-    container_name: peer0.org2.example.com
+    container_name: tpeer0.org2.example.com
     image: hyperledger/fabric-peer
     environment:
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
@@ -183,7 +183,7 @@ services:
       - basic
 #
   peer0.org3.example.com:
-    container_name: peer0.org3.example.com
+    container_name: tpeer0.org3.example.com
     image: hyperledger/fabric-peer
     environment:
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
